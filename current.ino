@@ -13,7 +13,7 @@ int get_current()
 }
 
 
-int pwm = 140;
+int pwm = 50;
 void loop()
 {
 int current;
@@ -25,11 +25,11 @@ int current;
 	   
 	analogWrite(3, pwm);
 	current = get_current();
-	if (current > 10) pwm = pwm - 1;
-	if (current < 10) pwm = pwm + 1;
+	if (current > 4) pwm = pwm - 1;
+	if (current < 4) pwm = pwm + 1;
 	Serial.print(pwm);
 	Serial.print(" =>  ");
 	Serial.print(current);
 	Serial.println("mA");
-	delay(1000);
+	delay(100);
 }
